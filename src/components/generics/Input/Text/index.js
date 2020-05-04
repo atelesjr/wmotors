@@ -11,7 +11,10 @@ const InputText = ({ name, placeholder }) => {
                 name={ name }
             />
             {
-                name === "Onde" && <i className="fas fa-map-marker-alt"/>
+                name === "Onde" && <i className="fas fa-map-marker-alt gps"/>
+            }
+            {
+                name === "Onde" && <i className="fas fa-times-circle close" />
             }
             <span>{ name }:</span>
         </S.Text>

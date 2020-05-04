@@ -7,7 +7,7 @@ export const SearchBar = styled.div`
 
     width: 100%;
     height: 31.2rem;
-    box-sizing: content-box;
+    box-sizing: border-box;
     padding: 2.5rem 4.5rem;
     background-color: ${ color.light };
 
@@ -24,36 +24,66 @@ export const SearchBar = styled.div`
         width: 100%;
 
         .col1, .col2 {
-            width: 50%;
-            border: 1px solid red;
-            box-sizing: content-box;
+            box-sizing: border-box;
         }
 
         .col1 {
             margin-right: .5rem;
+            width: 55%;
 
             .location{
                 display: flex;
-                box-sizing: content-box;
+                margin-bottom: 1rem;
 
                 .city{
-                    width: calc(100% - 10.5rem);
+                    width: calc(100% - 12rem);
+                    box-sizing: border-box;
                 }
 
                 .radius {
-                    width: 10rem;
+                    width: 12rem;
+                    box-sizing: border-box;    
                 }
+            }
 
-
+            .yearPrice {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+                
+                .col1, .col2 {
+                    width: 49%;
+                }
             }
         }
 
         .col2{
             margin-left: .5rem;
-        }
+            width: 45%;
 
-        input {
-            width: 100%;
+            .brandModel {
+                display: flex;
+                margin-bottom: 1rem;
+
+                .col1, .col2 {
+                    width: 49%
+                }
+            }
+        }   
+    }
+
+    .third{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+
+        & > span{
+            color: ${color.red_dark};
+            font-weight: 600;
+            user-select: none;
+            cursor: pointer;
         }
     }
 

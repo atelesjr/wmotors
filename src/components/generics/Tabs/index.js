@@ -10,9 +10,9 @@ const Tabs = ({ options, page, setPage }) => {
     return (
         <S.Tabs>
             {
-                options.map( option => (
+                options.map( (option, key) => (
                     <S.Transport selected={option.selected}
-                        key={ option.key }
+                        key={ key }
                         onClick={ () => setPage(option.page)}        
                     >
                         { option.logo }        
