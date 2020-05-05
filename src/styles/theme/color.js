@@ -1,6 +1,8 @@
 export const color = {
 
-    red_dark: '#D90028',
+    red_light: '#ff5454',
+    red: '#D90028',
+    red_dark: '#a30000',
     orange: '#ff9203',
     orange_dark: '#f77800',
     light: '#FFFFFF',

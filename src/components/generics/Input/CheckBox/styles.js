@@ -7,7 +7,7 @@ export const CheckBox = styled.div`
 
     position: relative;
 
-    margin-right: 10rem;
+    margin-right: 7rem;
     
     input{
         display: none;
@@ -25,8 +25,8 @@ export const CheckBox = styled.div`
             left: -2rem;
             top: -.15rem;
 
-            height: 1.7rem;
-            width: 1.7rem;
+            height: 2rem;
+            width: 2rem;
             border: 1px solid ${color.gray_300};
             border-radius: .3rem;
 
@@ -40,7 +40,7 @@ export const CheckBox = styled.div`
                 box-sizing: unset;
                 height: 1rem;
                 width: .5rem;
-                border: solid ${ color.red_dark };
+                border: solid ${ color.red };
                 border-width: 0 3px 4px 0;
                 transform: rotate(45deg);
                 opacity: 0;
@@ -57,7 +57,7 @@ export const CheckBox = styled.div`
     }
     
     input:checked ~ label  span {
-        border: 1px solid ${ color.red_dark };
+        border: 1px solid ${ color.red };
         &::after {
             opacity: 1; 
         }

@@ -4,6 +4,7 @@ import { color } from 'styles/theme';
 export const SearchBar = styled.div`
     display: flex;
     flex-flow: column;
+    justify-content: space-between;
 
     width: 100%;
     height: 31.2rem;
@@ -14,13 +15,11 @@ export const SearchBar = styled.div`
     .first {
         display: flex;
         justify-content: flex-start;
-        margin-bottom: 1rem;
-        padding-left: 2rem;
+        padding-left: 2.1rem;
     }
 
     .second {
         display: flex;
-
         width: 100%;
 
         .col1, .col2 {
@@ -33,7 +32,7 @@ export const SearchBar = styled.div`
 
             .location{
                 display: flex;
-                margin-bottom: 1rem;
+                margin-bottom: 3rem;
 
                 .city{
                     width: calc(100% - 12rem);
@@ -49,7 +48,6 @@ export const SearchBar = styled.div`
             .yearPrice {
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 1rem;
                 
                 .col1, .col2 {
                     width: 49%;
@@ -63,7 +61,7 @@ export const SearchBar = styled.div`
 
             .brandModel {
                 display: flex;
-                margin-bottom: 1rem;
+                margin-bottom: 3rem;
 
                 .col1, .col2 {
                     width: 49%
@@ -80,10 +78,33 @@ export const SearchBar = styled.div`
         width: 100%;
 
         & > span{
-            color: ${color.red_dark};
+            color: ${color.red};
             font-weight: 600;
             user-select: none;
             cursor: pointer;
+
+            &:hover{
+                color: ${color.red_dark};
+            }
+        }
+    }
+
+    .btnArea{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 45%;
+
+        span {
+            cursor: pointer;
+
+            &:hover{
+                color: ${ color.gray_500 }
+            }
+
+
+
         }
     }
 

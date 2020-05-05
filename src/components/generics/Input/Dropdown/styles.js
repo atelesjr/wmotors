@@ -5,18 +5,22 @@ export const Dropdown = styled.div`
     position: relative;    
     display: inline-block;
 
-    border: .1rem solid ${color.gray_300};
+    border: .1rem solid ${color.gray_200};
     border-radius: .2rem;
     width: 100%;
     font-weight: 600;
     box-sizing: border-box;
-    padding: .7rem .5rem;
+    padding: 1.5rem .5rem 1.2rem;
 
     user-select: none;
     cursor: pointer;
 
     &:hover{
-        border: .1rem solid ${color.gray_500};
+        border: .1rem solid ${color.gray_400};
+
+        i{
+            color: ${color.gray_500};
+        }
     }
     
     .selected {
@@ -27,11 +31,11 @@ export const Dropdown = styled.div`
 
         i {
             position: absolute;
-            top: ${ props => props.opened ? '1.5rem' : '1rem'};
+            top: ${ props => props.opened ? '2.3rem' : '1.8rem'};
             right: .5rem;
             line-height: 1pt;
-            color: ${color.gray_500};
-            transition: all .1s ease;
+            color: ${color.gray_400};
+            
             ${
                 props => props.opened && (`transform: rotate(180deg);`)
             }
@@ -45,7 +49,7 @@ export const Dropdown = styled.div`
         z-index: 10;
 
         padding-top: .7rem;
-        border: 1px solid ${color.gray_300};
+        border: 1px solid ${color.gray_200};
         border-radius: 0  0 .2rem .2rem;
         background-color: ${color.light};
         width: 100%;

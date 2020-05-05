@@ -2,7 +2,7 @@ import React from 'react'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const DistanceInput = ({defaultValue, onChange }) => {
+const DistanceInput = ({defaultValue, onChange, ...rest }) => {
     
     const distance = [
         {  option: '0km' },
@@ -18,6 +18,7 @@ const DistanceInput = ({defaultValue, onChange }) => {
             options={ distance }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
+            { ...rest }
         />                            
     )
 }

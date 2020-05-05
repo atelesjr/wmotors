@@ -43,8 +43,8 @@ export const Navigation = styled.nav`
             }
 
             &:hover{
-                color: ${color.red_dark};
-                border-bottom: .3rem solid ${color.red_dark};
+                color: ${color.red};
+                border-bottom: .3rem solid ${color.red};
             }
         }     
     }

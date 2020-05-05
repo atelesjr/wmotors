@@ -2,7 +2,7 @@ import React from 'react'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const PriceInput = ({defaultValue, onChange }) => {
+const PriceInput = ({defaultValue, onChange, ...rest }) => {
     
     const price = [
         {  option: '$10.000,00 a 20.000,00' },
@@ -14,10 +14,12 @@ const PriceInput = ({defaultValue, onChange }) => {
 
     return (
         <InputDropdown
-            label={'Faixa de Preço: '}
+            label={''}
+            placeholder={'Faixa de Preço'}
             options={ price }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
+            { ...rest }
         />                            
     )
 }

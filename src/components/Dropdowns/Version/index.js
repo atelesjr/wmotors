@@ -2,7 +2,7 @@ import React from 'react'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const VersionInput = ({defaultValue, onChange }) => {
+const VersionInput = ({defaultValue, onChange, ...rest }) => {
     
     const version = [
         {  option: '1.2 Active 12V FLEX 4P MANUAL' },
@@ -18,6 +18,7 @@ const VersionInput = ({defaultValue, onChange }) => {
             options={ version }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
+            { ...rest }
         />                            
     )
 }

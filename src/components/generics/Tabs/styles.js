@@ -13,9 +13,9 @@ export const Transport = styled.div`
     align-items: center;
 
     padding: 1.5rem 3rem;
-    color:  ${ props => props.selected ? color.red_dark : color.gray_400 };
+    color:  ${ props => props.selected ? color.red : color.gray_400 };
     box-sizing: content-box;
-    ${ props => props.selected && `border-bottom: .3rem solid ${color.red_dark};` } 
+    ${ props => props.selected && `border-bottom: .3rem solid ${color.red};` } 
     
     i{
         font-size: 3rem;
@@ -37,7 +37,7 @@ export const Transport = styled.div`
     }
 
     &:hover{
-        color: ${color.red_dark};
+        color: ${color.red};
     }
 
 `

@@ -6,41 +6,47 @@ export const Text = styled.div`
     width: 100%;
 
     input {
-        border: .1rem solid ${color.gray_300};
-        padding: .7rem .2rem .7rem 6.8rem;
+        border: .1rem solid ${color.gray_200};
+        border-right: none;
+        padding: 1.5rem .2rem 1.2rem 6.8rem;
         border-radius: .2rem;
         outline: none;
         width: 100%;
         font-weight: 600;
+        color:  ${color.gray_400};
     }
 
     i.gps {
         position: absolute;
-        top: .6rem;
+        top: 1.3rem;
         left: .7rem;
 
         font-size: 2rem;
-        color: ${color.red_dark};
+        color: ${color.red};
     }
 
     i.close {
         position: absolute;
-        top: .8rem;
+        top: 1.5rem;
         right: .5rem;
 
         font-size: 1.5rem;
+        cursor: pointer;
+        &:hover {
+            color: ${ color.red }
+        }
 
     }
 
     span{ 
         position: absolute;
-        top: .8rem;
+        top: 1.5rem;
         left: 2.5rem;
     }
 
     :hover{
         input {
-            border: .1rem solid ${color.gray_500};
+            border: .1rem solid ${color.gray_400};
         }
 
         span{

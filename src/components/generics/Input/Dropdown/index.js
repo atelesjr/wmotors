@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import * as S from './styles'
 
-const InputDropdown = ({ defaultValue, options, onChange, label }) => {
+const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ...rest }) => {
     const [selected, setSelected] = useState(defaultValue)
     const [opened, setOpened ] = useState(false)
 
     useEffect(()=>{
         onChange(selected)
-        setOpened(false)
     }, [selected, onChange])
+
+    useEffect(()=>{
+        rest.clear && setSelected(defaultValue)
+        rest.setClear(false)
+    }, [rest, defaultValue])
+
 
     return (
         <S.Dropdown opened={ opened }>
@@ -17,7 +22,13 @@ const InputDropdown = ({ defaultValue, options, onChange, label }) => {
                 onClick={ () => setOpened(!opened) }
             
             >
-                <span>{label} </span> 
+                <span>
+                    { 
+                        label 
+                        ? label 
+                        : (!selected) && placeholder
+                    } 
+                </span> 
                 { selected }
                 <i className="fas fa-sort-down" />
             </div>
@@ -30,7 +41,7 @@ const InputDropdown = ({ defaultValue, options, onChange, label }) => {
                                 <div 
                                     className="option" 
                                     key={key}
-                                    onClick={ () => setSelected(list.option)}
+                                    onClick={ () => { setSelected(list.option);  setOpened(false) } }
                                 >
                                     {list.option}
                                 </div>

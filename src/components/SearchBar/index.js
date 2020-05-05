@@ -9,27 +9,64 @@ import InputPrice from 'components/Dropdowns/Price'
 import InputBrand from 'components/Dropdowns/Brand'
 import InputModel from 'components/Dropdowns/Model'
 import InputVersion from 'components/Dropdowns/Version'
+import Button from 'components/generics/Button'
 
 
 const SearchBar = () => {
     
+    //Inputs
+    const [ newCar, setNewCar ] = useState(false);
+    const [ secondHand, setSecondHand ] = useState(false);
     const [ distance, setDistance ] = useState('100km');
     const [ year, setYear ] = useState('');
     const [ price, setPrice ] = useState('');
     const [ brand, setBrand ] = useState('Todas');
     const [ model, setModel ] = useState('Todos');
-    const [ version, setVersion ] = useState('');
+    const [ version, setVersion ] = useState('Todas');
+    const [ city , setCity ] = useState('São Paulo');
+    const [ clear, setClear ] = useState(false)
+
+    const [ send, setSend ] = useState(false);
+
+    const clearFilters = () => {
+        setNewCar(false);
+        setSecondHand(false);
+        setCity('');
+        setClear(true);
+    }
 
     useEffect(() => {
-        console.log('Distance:', distance)
-    }, [distance])
+        
+        if (send) {
+            console.log('Novo:', newCar)
+            console.log('Usado:', secondHand)
+            console.log('City:', city)
+            console.log('Distance:', distance)
+            console.log('Year:', year)
+            console.log('Price:', price)
+            console.log('Brand:', brand)
+            console.log('Model:', model)        
+            console.log('Version:', version) 
+            setSend(false);
+        }
+    }, [send])
+
 
     return (
         <S.SearchBar>
-
             <div className="first">
-                <InputCheckBox label='Novos' />
-                <InputCheckBox label='Usados' />
+                <InputCheckBox 
+                    label='Novos'
+                    checked={ newCar }
+                    onChange={ (e) => setNewCar(e) }
+                />
+                    
+                <InputCheckBox 
+                    label='Usados' 
+                    checked={ secondHand }
+                    onChange={ (e) => setSecondHand(e) }
+                />
+                    
             </div>
 
             <div className="second">
@@ -39,13 +76,17 @@ const SearchBar = () => {
                         <div  className="city">
                             <InputText
                                 name="Onde"
-                                placeholder="São Paulo"
+                                defaultValue={city}
+                                onChange={ (city) => setCity(city) }
+                                clearValue={ setCity }
                             />
                         </div>
                         <div  className="radius">
                             <InputDistance
-                                defaultValue={ distance }
+                                defaultValue={ '100km' }
                                 onChange={ (distance) => setDistance(distance)}
+                                clear={ clear }
+                                setClear={ setClear }
                             />                            
                         </div>
 
@@ -54,14 +95,18 @@ const SearchBar = () => {
                     <div className="yearPrice">
                         <div className="col1">
                             <InputYear
-                               defaultValue={ year }
-                               onChange={ (year) => setYear(year) }
+                                defaultValue={ '' }
+                                onChange={ (year) => setYear(year) }
+                                clear={ clear }
+                                setClear={ setClear }
                             />
                         </div>
                         <div className="col2">
                             <InputPrice
-                               defaultValue={ price }
+                               defaultValue={ '' }
                                onChange={ (price) => setPrice(price) }
+                               clear={ clear }
+                               setClear={ setClear }
                             />
                         </div>
                     </div>
@@ -73,15 +118,19 @@ const SearchBar = () => {
 
                         <div className="col1">
                             <InputBrand
-                                defaultValue={ brand }
+                                defaultValue={ 'Todas' }
                                 onChange={ (brand) => setBrand(brand) }
+                                clear={ clear }
+                                setClear={ setClear }
                             />
                         </div>
 
                         <div className="col2">
                             <InputModel
-                                defaultValue={ model }
+                                defaultValue={ 'Todos' }
                                 onChange={ (model) => setModel(model) }
+                                clear={ clear }
+                                setClear={ setClear }
                             />
                         </div>
 
@@ -89,8 +138,10 @@ const SearchBar = () => {
 
                     <div className="version">
                         <InputVersion
-                            defaultValue={ version }
+                            defaultValue={ 'Todas' }
                             onChange={ (version) => setVersion(version) }
+                            clear={ clear }
+                            setClear={ setClear }
                         />
                     </div>
 
@@ -99,10 +150,13 @@ const SearchBar = () => {
             </div>
 
             <div className="third">
-                <span> > Busca Avançada</span>
-                <div className="buttonArea">
-                   <span>Limpar Filtros</span> 
-                   <button>Ver Ofertas</button>
+                <span> <i className="fas fa-angle-right" /> Busca Avançada</span>
+                <div className="btnArea">
+                   <span onClick={ () => clearFilters() }>Limpar Filtros</span> 
+                   <Button 
+                        label="Ver Ofertas"
+                        onClick={ () => setSend(true) }
+                    />
                 </div>
 
             </div>

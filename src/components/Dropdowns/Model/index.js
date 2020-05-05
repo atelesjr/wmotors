@@ -2,7 +2,7 @@ import React from 'react'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const ModelInput = ({defaultValue, onChange }) => {
+const ModelInput = ({defaultValue, onChange, ...rest }) => {
     
     const model = [
         {  option: '207' },
@@ -18,6 +18,7 @@ const ModelInput = ({defaultValue, onChange }) => {
             options={ model }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
+            { ...rest }
         />                            
     )
 }

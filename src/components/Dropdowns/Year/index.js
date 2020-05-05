@@ -2,7 +2,7 @@ import React from 'react'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const YearInput = ({defaultValue, onChange }) => {
+const YearInput = ({ defaultValue, onChange, ...rest }) => {
     
     const year = [
         {  option: '2015' },
@@ -15,10 +15,11 @@ const YearInput = ({defaultValue, onChange }) => {
 
     return (
         <InputDropdown
-            label={'Ano Desejado: '}
+            placeholder={'Ano Desejado: '}
             options={ year }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
+            { ...rest }
         />                            
     )
 }

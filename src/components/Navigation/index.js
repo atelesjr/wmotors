@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styles'
 
-import Button from 'components/generics/Button'
+import ButtonSecundary from 'components/generics/Button/Secundary'
 import Tabs from 'components/generics/Tabs'
 
 const Navigation = ({ page, setPage }) => {
@@ -13,7 +13,7 @@ const Navigation = ({ page, setPage }) => {
     return (
         <S.Navigation>
             <Tabs  options={ transports } page={ page } setPage={ setPage } />
-            <Button label='Vender meu carro' />
+            <ButtonSecundary label='Vender meu carro' />
         </S.Navigation>
     )
 }

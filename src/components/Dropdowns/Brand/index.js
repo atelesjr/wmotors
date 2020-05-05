@@ -2,7 +2,7 @@ import React from 'react'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const BrandInput = ({ defaultValue, onChange }) => {
+const BrandInput = ({ defaultValue, onChange, ...rest }) => {
     
     const brands = [
         {  option: 'Chevrolet' },
@@ -18,6 +18,7 @@ const BrandInput = ({ defaultValue, onChange }) => {
             options={ brands }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
+            { ...rest }
         />                            
     )
 }

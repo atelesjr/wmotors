@@ -1,11 +1,16 @@
 import React from 'react'
 import * as S from './styles'
 
-const InputCheckBox = ({ label }) => {
+const InputCheckBox = ({ label, onChange, checked }) => {
 
     return (
         <S.CheckBox>
-            <input type="checkbox" id={label} name={label} value={label} />
+            <input 
+                type="checkbox" id={label} 
+                name={label} value={label} 
+                checked={checked} 
+                onChange={ (e) => onChange(e.target.checked) }
+            />
             <label htmlFor={label} >
                 <span />
                 { label }
