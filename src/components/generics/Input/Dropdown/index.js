@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import * as S from './styles'
+import { useClickOutside } from 'functions/useClickOutside';
 
 const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ...rest }) => {
     const [selected, setSelected] = useState(defaultValue)
     const [opened, setOpened ] = useState(false)
+    const wrapperRef = useRef(null)
+    
+    useClickOutside(wrapperRef, () => setOpened(false))
    
-
     useEffect(()=>{
         onChange(selected)
     }, [selected, onChange])
@@ -17,8 +20,14 @@ const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ..
 
     const list = options || [];
     const selectedOption = list.find( option => option.id === selected ) || []
+
     return (
-        <S.Dropdown opened={ opened }>
+        <S.Dropdown 
+            opened={ list.length !== 0  && opened } 
+            ref={ wrapperRef } 
+            onClick={ () =>  setOpened(!opened) }
+            released={ list.length !== 0 ? true : false }
+        >
             <div 
                 className="selected"
                 onClick={ () => setOpened(!opened) }
@@ -35,14 +44,14 @@ const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ..
             </div>
 
             {
-                opened && (
+                ( list.length !== 0  &&  opened) && (
                     <div className="options">
                        { 
                            list.map( option => (
                                 <div 
                                     className="option" 
                                     key={option.id}
-                                    onClick={ () => { setSelected(option.id);  setOpened(false) } }
+                                    onClick={ () => { setSelected(option.id) } }
                                 >
                                     { option.name }
                                 </div>

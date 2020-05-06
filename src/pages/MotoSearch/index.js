@@ -5,7 +5,7 @@ const MotoSearch = () => {
 
     return (
         <S.MotoSearch>
-            <h2>MotoSearch</h2>
+            <h2>Em construção</h2>
         </S.MotoSearch>
     )
 }

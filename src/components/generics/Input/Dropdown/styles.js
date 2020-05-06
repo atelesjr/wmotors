@@ -11,6 +11,7 @@ export const Dropdown = styled.div`
     font-weight: 600;
     box-sizing: border-box;
     padding: 1.5rem .5rem 1.2rem;
+    ${ props => !props.released && `filter: opacity(70%)`};
 
     user-select: none;
     cursor: pointer;
@@ -35,7 +36,6 @@ export const Dropdown = styled.div`
             right: .5rem;
             line-height: 1pt;
             color: ${color.gray_400};
-            
             ${
                 props => props.opened && (`transform: rotate(180deg);`)
             }
@@ -86,18 +86,22 @@ export const Dropdown = styled.div`
             padding: .5rem 2rem .5rem 0;
             border-radius: .2rem;
             transition: all .2s ease-in-out;
-        
+            font-weight: 400;
+            font-size: 1.4rem;
+            text-align: right;
             /* border: 1px solid blue; */
+            
+            ${ props => props.released && `
+                &:hover{
+                    background-color: ${color.red};
+                    color: ${color.light};
+                }
 
-            &:hover{
-                background-color: ${color.gray_200};
-                color: ${color.light}
-            }
-
-            &:active{
-                background-color: ${color.gray_200};
-                color: ${color.gray_300}
-            }
+                &:active{
+                    background-color: ${color.red_dark};
+                    color: ${color.light}
+                }
+            `}
         }
     }                        
 `

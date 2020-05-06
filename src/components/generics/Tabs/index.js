@@ -1,19 +1,28 @@
 import React, { useEffect } from 'react'
 import * as S from './styles'
 
-const Tabs = ({ options, page, setPage }) => {
+const Tabs = ({ options, page, setPage, ...rest }) => {
 
     useEffect(() => {
-     
-    }, [page])
+    }, [ ])
+
+    //to change page and tab selection
+    const handleClick = (option) =>{
+        setPage(option.page);
+        rest.setSelected(option.name)
+    }
 
     return (
         <S.Tabs>
             {
                 options.map( (option, key) => (
-                    <S.Transport selected={option.selected}
+                    <S.Transport selected={
+                        rest.selected === option.name
+                        ? true
+                        : false
+                    }
                         key={ key }
-                        onClick={ () => setPage(option.page)}        
+                        onClick={ () => handleClick(option) }        
                     >
                         { option.logo }        
                         <div className="text">
