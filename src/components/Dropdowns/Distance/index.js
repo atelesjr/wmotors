@@ -4,18 +4,18 @@ import InputDropdown from 'components/generics/Input/Dropdown'
 
 const DistanceInput = ({defaultValue, onChange, ...rest }) => {
     
-    const distance = [
-        {  option: '0km' },
-        {  option: '50km' },
-        {  option: '100km' },
-        {  option: '150km' },
-        {  option: '200km' },
+    const options = [
+        {  id: 1, name: '0km' },
+        {  id: 2, name: '50km' },
+        {  id: 3, name: '100km' },
+        {  id: 4, name: '150km' },
+        {  id: 5, name: '200km' },
     ]
 
     return (
         <InputDropdown
             label={'Raio: '}
-            options={ distance }
+            options={ options }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
             { ...rest }

@@ -4,6 +4,7 @@ import * as S from './styles'
 const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ...rest }) => {
     const [selected, setSelected] = useState(defaultValue)
     const [opened, setOpened ] = useState(false)
+   
 
     useEffect(()=>{
         onChange(selected)
@@ -14,13 +15,13 @@ const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ..
         rest.setClear(false)
     }, [rest, defaultValue])
 
-
+    const list = options || [];
+    const selectedOption = list.find( option => option.id === selected ) || []
     return (
         <S.Dropdown opened={ opened }>
             <div 
                 className="selected"
                 onClick={ () => setOpened(!opened) }
-            
             >
                 <span>
                     { 
@@ -29,7 +30,7 @@ const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ..
                         : (!selected) && placeholder
                     } 
                 </span> 
-                { selected }
+                {  selectedOption.name || defaultValue  }
                 <i className="fas fa-sort-down" />
             </div>
 
@@ -37,13 +38,13 @@ const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ..
                 opened && (
                     <div className="options">
                        { 
-                           options.map( (list, key) => (
+                           list.map( option => (
                                 <div 
                                     className="option" 
-                                    key={key}
-                                    onClick={ () => { setSelected(list.option);  setOpened(false) } }
+                                    key={option.id}
+                                    onClick={ () => { setSelected(option.id);  setOpened(false) } }
                                 >
-                                    {list.option}
+                                    { option.name }
                                 </div>
                             ))
                         }
@@ -58,3 +59,10 @@ const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ..
 
 export default InputDropdown;
 
+/*
+const options = [
+    { id: 1, option: "Português", value: 'pt', image: pt },
+    { id: 2, option: "English", value: 'en', image: en },
+    { id: 3, option: "Español", value: 'es', image: es },
+]
+*/

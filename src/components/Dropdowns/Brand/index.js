@@ -1,22 +1,31 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+
+//redux
+import { useDispatch, useSelector } from 'react-redux'
+import { getBrands } from 'redux/actions/brandsActions'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const BrandInput = ({ defaultValue, onChange, ...rest }) => {
-    
-    const brands = [
-        {  option: 'Chevrolet' },
-        {  option: 'Ford' },
-        {  option: 'VolksWagen' },
-        {  option: 'Peugeot' },
-        {  option: 'Honda' },
-    ]
+const BrandInput = ({ onChange, ...rest }) => {
 
+    //Redux
+    const dispatch = useDispatch();
+    const { brands } = useSelector( state => state )
+    const list = brands.brands || []
+
+    useEffect(() => {
+        dispatch(getBrands())
+    }, [dispatch])
+    
+    
+    const options = list.map( option => ( { id: option.ID, name: option.Name } ))
+    //console.log('options: ', options )
+    
     return (
         <InputDropdown
             label={'Marca: '}
-            options={ brands }
-            defaultValue={ defaultValue }
+            options={ options }
+            defaultValue={ 'Todas' }
             onChange={ (e) => onChange(e) }
             { ...rest }
         />                            

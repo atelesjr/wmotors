@@ -5,12 +5,12 @@ import InputDropdown from 'components/generics/Input/Dropdown'
 const YearInput = ({ defaultValue, onChange, ...rest }) => {
     
     const year = [
-        {  option: '2015' },
-        {  option: '2016' },
-        {  option: '2017' },
-        {  option: '2018' },
-        {  option: '2019' },
-        {  option: '2020' },
+        {  id: 1, name: '2015' },
+        {  id: 2, name: '2016' },
+        {  id: 3, name: '2017' },
+        {  id: 4, name: '2018' },
+        {  id: 5, name: '2019' },
+        {  id: 6, name: '2020' },
     ]
 
     return (

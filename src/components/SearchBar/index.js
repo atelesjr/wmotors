@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as S from './styles'
 
+//compoments
 import InputCheckBox from 'components/generics/Input/CheckBox'
 import InputText from 'components/generics/Input/Text'
 import InputDistance from 'components/Dropdowns/Distance'
@@ -13,7 +14,7 @@ import Button from 'components/generics/Button'
 
 
 const SearchBar = () => {
-    
+
     //Inputs
     const [ newCar, setNewCar ] = useState(false);
     const [ secondHand, setSecondHand ] = useState(false);
@@ -26,6 +27,7 @@ const SearchBar = () => {
     const [ city , setCity ] = useState('São Paulo');
     const [ clear, setClear ] = useState(false)
 
+    //button
     const [ send, setSend ] = useState(false);
 
     const clearFilters = () => {
@@ -36,7 +38,6 @@ const SearchBar = () => {
     }
 
     useEffect(() => {
-        
         if (send) {
             console.log('Novo:', newCar)
             console.log('Usado:', secondHand)
@@ -49,7 +50,7 @@ const SearchBar = () => {
             console.log('Version:', version) 
             setSend(false);
         }
-    }, [send])
+    }, [ send, newCar, secondHand, city, distance, year, price, brand, model, version ])
 
 
     return (
@@ -118,7 +119,6 @@ const SearchBar = () => {
 
                         <div className="col1">
                             <InputBrand
-                                defaultValue={ 'Todas' }
                                 onChange={ (brand) => setBrand(brand) }
                                 clear={ clear }
                                 setClear={ setClear }
@@ -131,6 +131,7 @@ const SearchBar = () => {
                                 onChange={ (model) => setModel(model) }
                                 clear={ clear }
                                 setClear={ setClear }
+                                brand={ brand }
                             />
                         </div>
 
@@ -142,6 +143,7 @@ const SearchBar = () => {
                             onChange={ (version) => setVersion(version) }
                             clear={ clear }
                             setClear={ setClear }
+                            model={model}
                         />
                     </div>
 

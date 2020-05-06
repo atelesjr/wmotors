@@ -1,21 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
+//redux
+import { useDispatch, useSelector } from 'react-redux'
+import { getModels } from 'redux/actions/modelsActions'
 
 import InputDropdown from 'components/generics/Input/Dropdown'
 
-const ModelInput = ({defaultValue, onChange, ...rest }) => {
-    
-    const model = [
-        {  option: '207' },
-        {  option: '208' },
-        {  option: '308' },
-        {  option: '309' },
-        {  option: '3000' },
-    ]
+const ModelInput = ({ defaultValue, onChange, ...rest }) => {
 
+    //Redux
+    const dispatch = useDispatch();
+    const { models } = useSelector( state => state )
+    const list = models.models || []
+
+    useEffect(() => {
+        //console.log(rest.brand)
+        rest.brand !=='Todas' && dispatch(getModels(rest.brand))
+    }, [rest.brand,dispatch])
+    
+    //console.log('Models ', list)
+    const options =  list.map( option => ( { id: option.ID, name: option.Name } ))
+    
     return (
         <InputDropdown
             label={'Modelo: '}
-            options={ model }
+            options={ options }
             defaultValue={ defaultValue }
             onChange={ (e) => onChange(e) }
             { ...rest }
