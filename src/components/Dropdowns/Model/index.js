@@ -14,11 +14,9 @@ const ModelInput = ({ defaultValue, onChange, ...rest }) => {
     const list = models.models || []
 
     useEffect(() => {
-        //console.log(rest.brand)
         rest.brand !=='Todas' && dispatch(getModels(rest.brand))
     }, [rest.brand,dispatch])
     
-    //console.log('Models ', list)
     const options =  list.map( option => ( { id: option.ID, name: option.Name } ))
     
     return (

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'styles/theme';
+import { color, device } from 'styles/theme';
 
 export const CheckBox = styled.div`
     display: flex;
@@ -7,7 +7,7 @@ export const CheckBox = styled.div`
 
     position: relative;
 
-    margin-right: 7rem;
+    margin-right: 5rem;
     
     input{
         display: none;
@@ -16,30 +16,32 @@ export const CheckBox = styled.div`
     label {
         user-select: none;
         cursor: pointer;
-        padding-left: .8rem;
+        
         line-height: 1.3;;
         transition: all .1s ease-in;  
+        font-size: 1.1rem;
+        padding-left: .2rem;
 
         span {
             position: absolute;
             left: -2rem;
             top: -.15rem;
 
-            height: 2rem;
-            width: 2rem;
+            width: 1.5rem;
+            height: 1.5rem;
             border: 1px solid ${color.gray_300};
-            border-radius: .3rem;
+            border-radius: .2rem;
 
             &::after {
                 display: block;
                 position: absolute;
                 left: .5rem;
-                top: 0;
+                top: -.1rem;
 
                 content: "";
                 box-sizing: unset;
                 height: 1rem;
-                width: .5rem;
+                width: .3rem;
                 border: solid ${ color.red };
                 border-width: 0 3px 4px 0;
                 transform: rotate(45deg);
@@ -60,6 +62,26 @@ export const CheckBox = styled.div`
         border: 1px solid ${ color.red };
         &::after {
             opacity: 1; 
+        }
+    }
+
+    @media ${ device.laptop }{
+       
+        label{
+            font-size: 1.4rem;
+            padding-left: .8rem;
+
+            span {
+                width: 2rem;
+                height: 2rem;
+
+                &::after{
+                    top: 0;
+
+                    height: 1rem;
+                    width: .5rem;
+                }
+            }
         }
     }
 

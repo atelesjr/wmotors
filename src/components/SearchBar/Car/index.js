@@ -51,7 +51,7 @@ const CarSearchBar = () => {
        }, [ send, newCar, secondHand, city, distance, year, price, brand, model, version ])
    
     return(
-        <>
+        <div>
             <div className="first">
                 <InputCheckBox 
                     label='Novos'
@@ -159,7 +159,7 @@ const CarSearchBar = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     );
 
 }

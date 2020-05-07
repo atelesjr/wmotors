@@ -17,7 +17,9 @@ const Navigation = ({ page, setPage }) => {
             <Tabs  
                 options={ options } selected={ selected } setSelected={ setSelected }
                 page={ page } setPage={ setPage } />
-            <ButtonSecundary label='Vender meu carro' />
+            <ButtonSecundary label={`Vender  ${
+                page === 'car' ? 'meu carro' : 'minha moto'
+            }`} />
         </S.Navigation>
     )
 }

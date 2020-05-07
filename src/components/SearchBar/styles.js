@@ -1,16 +1,20 @@
 import styled from 'styled-components';
-import { color } from 'styles/theme';
+import { color, device } from 'styles/theme';
 
 export const SearchBar = styled.div`
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-
     width: 100%;
     height: 31.2rem;
     box-sizing: border-box;
-    padding: 2.5rem 4.5rem;
+    padding: 1.5rem 1.5rem;
     background-color: ${ color.light };
+
+    &>div{
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+
+        height: 100%;
+    }
 
     .first {
         display: flex;
@@ -20,6 +24,8 @@ export const SearchBar = styled.div`
 
     .second {
         display: flex;
+        flex-flow: column;
+
         width: 100%;
 
         .col1, .col2 {
@@ -27,12 +33,11 @@ export const SearchBar = styled.div`
         }
 
         .col1 {
-            margin-right: .5rem;
-            width: 55%;
+            width: auto;
 
             .location{
                 display: flex;
-                margin-bottom: 3rem;
+                margin-bottom: 1rem;
 
                 .city{
                     width: calc(100% - 12rem);
@@ -48,6 +53,7 @@ export const SearchBar = styled.div`
             .yearPrice {
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: 1rem; 
                 
                 .col1, .col2 {
                     width: 49%;
@@ -56,12 +62,12 @@ export const SearchBar = styled.div`
         }
 
         .col2{
-            margin-left: .5rem;
-            width: 45%;
+            width: auto;
 
             .brandModel {
                 display: flex;
-                margin-bottom: 3rem;
+                justify-content: space-between;
+                margin-bottom: 1rem;
 
                 .col1, .col2 {
                     width: 49%
@@ -76,6 +82,8 @@ export const SearchBar = styled.div`
         align-items: center;
 
         width: 100%;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
 
         & > span{
             color: ${color.red};
@@ -102,10 +110,51 @@ export const SearchBar = styled.div`
             &:hover{
                 color: ${ color.gray_500 }
             }
-
-
-
         }
+    }
+
+    @media ${ device.tablet}{
+        height: 31.2rem;
+        padding: 2.5rem 4.5rem;
+
+        .second{
+            flex-flow: row;
+
+            .col1{
+                margin-right: .5em;
+                width: 55%;
+                
+                .location{
+                    margin-bottom: 3rem;
+                }
+
+                .yearPrice {
+                    margin-bottom: 0rem; 
+
+                    .col1, .col2 {
+                        width: 49%;
+                    }                   
+                }
+            }
+
+            .col2{
+                margin-left: .5rem;
+                width: 45%;
+
+                .brandModel {
+                    margin-bottom: 3rem;
+                }
+            }
+        }
+        
+    }
+
+    @media ${ device.laptop}{
+
+        .third{
+            font-size: 1.4rem;
+        }
+    
     }
 
 `

@@ -17,10 +17,8 @@ const BrandInput = ({ onChange, ...rest }) => {
         dispatch(getBrands())
     }, [dispatch])
     
-    
     const options = list.map( option => ( { id: option.ID, name: option.Name } ))
-    //console.log('options: ', options )
-    
+
     return (
         <InputDropdown
             label={'Marca: '}

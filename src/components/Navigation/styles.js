@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'styles/theme';
+import { color, device } from 'styles/theme';
 
 export const Navigation = styled.nav`
     display: flex;
@@ -47,6 +47,17 @@ export const Navigation = styled.nav`
                 border-bottom: .3rem solid ${color.red};
             }
         }     
+    }
+
+    button {
+        display: block;
+    }
+
+    @media ${ device.tablet}{
+        button {
+            display: block;
+        }
+        
     }
 
 

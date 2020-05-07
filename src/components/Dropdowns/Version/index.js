@@ -7,19 +7,16 @@ import { getVersions } from 'redux/actions/versionsActions'
 import InputDropdown from 'components/generics/Input/Dropdown'
 
 const VersionInput = ({defaultValue, onChange, ...rest }) => {
-
     //Redux
     const dispatch = useDispatch();
     const { versions } = useSelector( state => state )
     const list = versions.versions || []
-
 
     useEffect(() => {
         console.log(rest.model)
         rest.model !=='Todos' && dispatch(getVersions(rest.model))
     }, [rest.model, dispatch])
     
-    //console.log('Versions ', list )
     const options =  list.map( option => ( { id: option.ID, name: option.Name } ))
 
     return (

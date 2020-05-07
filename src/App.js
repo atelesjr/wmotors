@@ -6,7 +6,7 @@ import Container from 'components/Container'
 import Content from 'components/Content'
 import Header from 'components/Header'
 import Navigation from 'components/Navigation'
-import CarSearch from 'pages/CarSearch'
+import Search from 'pages/Search'
 //import MotoSearch from 'pages/MotoSearch'
 
 function App() {
@@ -20,16 +20,9 @@ function App() {
   return (
     <Container>
       <Content>
-
         <Header /> 
-
         <Navigation page={ page } setPage={setPage} />
-        <CarSearch page={ page }/>
-        <div className="results">
-          <h1>Resultados...</h1>
-        </div>
-        
-        
+        <Search page={ page }/>
       </Content>
   </Container>
   );

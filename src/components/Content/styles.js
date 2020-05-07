@@ -11,8 +11,6 @@ export const Content = styled.div`
     box-sizing: content-box;
     margin: 2rem 1.5rem 1.5rem;
     
-    /* border: 1px solid black; */
-
     @media ${device.mobile} {
         overflow: scroll;
     }

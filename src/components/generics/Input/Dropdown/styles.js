@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from 'styles/theme';
+import { color, device } from 'styles/theme';
 
 export const Dropdown = styled.div`
     position: relative;    
@@ -14,20 +14,24 @@ export const Dropdown = styled.div`
     ${ props => !props.released && `filter: opacity(70%)`};
 
     user-select: none;
-    cursor: pointer;
+    cursor: ${ props => props.released ? 'pointer' : 'not-allowed'};
 
-    &:hover{
-        border: .1rem solid ${color.gray_400};
+    ${ props => props.released && `
+        &:hover{
+            border: .1rem solid ${color.gray_400};
 
-        i{
-            color: ${color.gray_500};
+            i{
+                color: ${color.gray_500};
+            }
         }
-    }
+    `}
     
     .selected {
+        font-size: 1.1rem;
 
         span{
             font-weight: 400;
+            font-size:inherit;
         }
 
         i {
@@ -35,6 +39,8 @@ export const Dropdown = styled.div`
             top: ${ props => props.opened ? '2.3rem' : '1.8rem'};
             right: .5rem;
             line-height: 1pt;
+
+            font-size: 1.2rem;
             color: ${color.gray_400};
             ${
                 props => props.opened && (`transform: rotate(180deg);`)
@@ -83,12 +89,17 @@ export const Dropdown = styled.div`
         .option {
             display: flex;
             justify-content: flex-end;
+
+
             padding: .5rem 2rem .5rem 0;
             border-radius: .2rem;
-            transition: all .2s ease-in-out;
             font-weight: 400;
-            font-size: 1.4rem;
+
+            font-size: 1.1rem;
             text-align: right;
+            
+            transition: all .2s ease-in-out;
+            
             /* border: 1px solid blue; */
             
             ${ props => props.released && `
@@ -103,5 +114,40 @@ export const Dropdown = styled.div`
                 }
             `}
         }
-    }                        
+    }  
+
+    @media ${ device.tablet}{
+        .selected {
+            font-size: 1.1rem;
+            span{
+                font-size:inherit;
+            }
+
+            i{
+                font-size: 1.2rem;
+            }
+        }
+
+        .options > .option {
+            font-size: 1.1rem
+        } 
+    }      
+
+    @media ${ device.laptop}{
+        .selected {
+            font-size: 1.4rem;
+            span{
+                font-size:inherit;
+            }
+
+            i{
+                font-size: 1.4rem;
+            }
+        }
+
+        .options > .option {
+            font-size: 1.4rem
+
+        }
+    }                      
 `
