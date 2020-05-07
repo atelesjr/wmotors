@@ -8,9 +8,15 @@ To install this project:
 To start this project:
 **yarn start**
 
-
+Web
 ![wmotors](https://github.com/atelesjr/wmotors/blob/master/public/img/01.PNG)
+
+Web
 ![wmotors](https://github.com/atelesjr/wmotors/blob/master/public/img/02.PNG)
+
+Tablet 
 ![wmotors](https://github.com/atelesjr/wmotors/blob/master/public/img/03.PNG)
+
+Mobile
 ![wmotors](https://github.com/atelesjr/wmotors/blob/master/public/img/04.PNG)
 
