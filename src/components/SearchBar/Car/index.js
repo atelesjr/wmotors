@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
-
 //compoments
-import InputCheckBox from 'components/generics/Input/CheckBox'
-import InputText from 'components/generics/Input/Text'
-import InputDistance from 'components/Dropdowns/Distance'
-import InputYear from 'components/Dropdowns/Year'
-import InputPrice from 'components/Dropdowns/Price'
-import InputBrand from 'components/Dropdowns/Brand'
-import InputModel from 'components/Dropdowns/Model'
-import InputVersion from 'components/Dropdowns/Version'
-import Button from 'components/generics/Button'
+import InputCheckBox from '../../generics/Input/CheckBox'
+import InputText from '../../generics/Input/Text'
+import InputDistance from '../../Dropdowns/Distance'
+import InputYear from '../../Dropdowns/Year'
+import InputPrice from '../../Dropdowns/Price'
+import InputBrand from '../../Dropdowns/Brand'
+import InputModel from '../../Dropdowns/Model'
+import InputVersion from '../../Dropdowns/Version'
+import Button from '../../generics/Button'
 
 const CarSearchBar = () => {
 

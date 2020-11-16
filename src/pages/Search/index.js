@@ -1,8 +1,8 @@
 import React from 'react'
 import * as S from './styles'
 
-import SearchBar from 'components/SearchBar'
-import SearchResult from 'components/SearchResult'
+import SearchBar from '../../components/SearchBar'
+import SearchResult from '../../components/SearchResult'
 
 const Search = ({page}) => {
 

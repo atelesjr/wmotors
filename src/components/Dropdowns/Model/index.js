@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { getModels } from 'redux/actions/modelsActions'
+import { getModels } from '../../../redux/actions/modelsActions'
+//component
+import InputDropdown from '../../generics/Input/Dropdown'
 
-import InputDropdown from 'components/generics/Input/Dropdown'
 
 const ModelInput = ({ defaultValue, onChange, ...rest }) => {
 

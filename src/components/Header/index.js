@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styles'
 
-import Logo from 'assets/wm-logo.png'
+import Logo from '../../assets/wm-logo.png'
 
 const Header = () => {
     return (

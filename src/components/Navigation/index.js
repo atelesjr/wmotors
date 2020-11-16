@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import * as S from './styles'
 
-import ButtonSecundary from 'components/generics/Button/Secundary'
-import Tabs from 'components/generics/Tabs'
+import ButtonSecundary from '../generics/Button/Secundary'
+import Tabs from '../generics/Tabs'
 
 const Navigation = ({ page, setPage }) => {
     const [selected, setSelected] = useState('CARROS');

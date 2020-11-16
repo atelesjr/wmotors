@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, device } from 'styles/theme';
+import { color, device } from '../../../styles/theme';
 
 export const Tabs = styled.div`
     display: flex;

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
+//generics
 import './index.css';
-
-
-import Container from 'components/Container'
-import Content from 'components/Content'
-import Header from 'components/Header'
-import Navigation from 'components/Navigation'
-import Search from 'pages/Search'
+//components
+import Container from './components/Container'
+import Content from './components/Content'
+import Header from './components/Header'
+import Navigation from './components/Navigation'
+import Search from './pages/Search'
 //import MotoSearch from 'pages/MotoSearch'
 
 function App() {

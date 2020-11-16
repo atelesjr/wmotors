@@ -1,6 +1,6 @@
 import React from 'react'
-
-import InputDropdown from 'components/generics/Input/Dropdown'
+//componnent
+import InputDropdown from '../../generics/Input/Dropdown'
 
 const YearInput = ({ defaultValue, onChange, ...rest }) => {
     

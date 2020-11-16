@@ -1,6 +1,6 @@
 import { put, call } from 'redux-saga/effects'
 
-import { versions } from 'redux/api'
+import { versions } from '../api'
 
 export function* getVersions({ payload }) {
     console.log('saga Models', payload)

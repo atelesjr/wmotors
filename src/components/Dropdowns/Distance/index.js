@@ -1,6 +1,6 @@
 import React from 'react'
-
-import InputDropdown from 'components/generics/Input/Dropdown'
+//componnet
+import InputDropdown from '../../generics/Input/Dropdown'
 
 const DistanceInput = ({defaultValue, onChange, ...rest }) => {
     

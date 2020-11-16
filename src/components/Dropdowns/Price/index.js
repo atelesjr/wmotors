@@ -1,6 +1,6 @@
 import React from 'react'
-
-import InputDropdown from 'components/generics/Input/Dropdown'
+//component
+import InputDropdown from '../../generics/Input/Dropdown'
 
 const PriceInput = ({defaultValue, onChange, ...rest }) => {
     

@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react'
-
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { getBrands } from 'redux/actions/brandsActions'
-
-import InputDropdown from 'components/generics/Input/Dropdown'
+import { getBrands } from '../../../redux/actions/brandsActions'
+//component
+import InputDropdown from '../../generics/Input/Dropdown'
 
 const BrandInput = ({ onChange, ...rest }) => {
 

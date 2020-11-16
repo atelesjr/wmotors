@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import * as S from './styles'
-import { useClickOutside } from 'functions/useClickOutside';
+import { useClickOutside } from '../../../../functions/useClickOutside'
 
 const InputDropdown = ({ defaultValue, options, onChange, label, placeholder, ...rest }) => {
     const [selected, setSelected] = useState(defaultValue)

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { getVersions } from 'redux/actions/versionsActions'
-
-import InputDropdown from 'components/generics/Input/Dropdown'
+import { getVersions } from '../../../redux/actions/versionsActions'
+//component
+import InputDropdown from '../../generics/Input/Dropdown'
 
 const VersionInput = ({defaultValue, onChange, ...rest }) => {
     //Redux
